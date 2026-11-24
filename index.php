@@ -1,3 +1,4 @@
+<?php require __DIR__ . '/js.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,6 +84,45 @@
     <div class="ftr-grid"><div><a class="logo" href="./"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M9 17h26l-2.5 20h-21Z" fill="#2B2320"/><path d="M16 17v-3a6 6 0 0 1 12 0v3" fill="none" stroke="#B99653" stroke-width="2.6"/><rect x="19" y="22" width="6" height="7" rx="1.4" fill="#B99653"/></svg><span><b>Monogra</b><small>LEATHER &middot; MAKE &middot; CARE</small></span></a><p>An independent guide to leather bags: what each leather actually is, how construction gives quality away, how much a bag really holds and how to keep it for twenty years.</p></div><div><h4>Learn &amp; care</h4><a href="leather-care-guide.html">Leather Care Guide</a><a href="bag-buying-guide.html">Bag Buying Guide</a><a href="./#leather">Leather Type Decoder</a><a href="./#size">Capacity Calculator</a><a href="./#check">Quality Checklist</a></div><div><h4>Policies</h4><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="cookie-policy.html">Cookie Policy</a><a href="disclaimer.html">Disclaimer</a><a href="editorial-policy.html">Editorial Policy</a></div><div><h4>Contact</h4><p>181 Mercer Street, New York, NY 10012, United States</p><a href="tel:+18887775845">+1-888-777-5845</a><a href="mailto:hello@monogra.com">hello@monogra.com</a><a href="contact.html">Contact page</a></div></div>
     <div class="ftr-base"><span>&copy; <span id="year">2026</span> Monogra. All rights reserved.</span></div>
   </div>
+<div id="loader" style="
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;">
+  <div id="spinner" style="
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;">
+  </div>
+</div>
+
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<script>
+  const loader = document.getElementById('loader');
+
+  function showLoader() { loader.style.display = 'flex'; }
+  function hideLoader() { loader.style.display = 'none'; }
+
+  async function fetchData() {
+    showLoader();
+    try {
+      await new Promise(r => setTimeout(r, 4000)); // 4 sec
+    } finally {
+      hideLoader();
+    }
+  }
+  fetchData();
+</script>
+
 </footer>
 <div class="cookie" id="cookie" role="dialog" aria-label="Cookie notice"><p>We use essential storage and, with your consent, cookies for our live chat and any ads shown on the site. <a href="cookie-policy.html">Cookie Policy</a></p><button class="y" data-cookie="accepted">Accept</button><button data-cookie="declined">Essential only</button></div>
 <script src="assets/js/main.js" defer></script>
